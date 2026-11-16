@@ -37,3 +37,12 @@ Cada implementação será responsável por realizar leituras, verificar seu fun
 O sistema utilizará dados simulados para registrar medições, armazenar um histórico em banco de dados, realizar previsões por diferentes estratégias e emitir alertas classificados em ATENÇÃO, ALERTA e CRÍTICO.
 
 Os resultados servirão como apoio à tomada de decisão dos responsáveis pelas unidades de saúde, sem substituir a avaliação humana.
+
+## OBS
+### Decisão de modelagem — DadosTerritorio e ConfiguracaoSistema
+
+A classe `DadosTerritorio` é responsável por armazenar as informações territoriais e os limiares de atenção, alerta e criticidade, garantindo a validação dos valores por meio de métodos específicos.
+
+A classe `ConfiguracaoSistema` será responsável por centralizar o gerenciamento dessas configurações, utilizando o padrão Singleton para disponibilizar uma instância única durante a execução do sistema.
+
+Essa divisão permite manter o encapsulamento e evitar a duplicação de informações, respeitando as responsabilidades de cada classe.
