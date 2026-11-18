@@ -10,7 +10,7 @@ public class ConexaoBD {
     private static final String PORT = "1521";
     private static final String SID = "ORCL";
     private static final String USER = "RM566491";
-    private static final String PASSWORD = "SENHA"; //mudar senha
+    private static final String PASSWORD = "090207"; //mudar senha
     
     private static ConexaoBD instancia;
 

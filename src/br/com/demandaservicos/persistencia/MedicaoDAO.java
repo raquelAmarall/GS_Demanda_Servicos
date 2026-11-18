@@ -106,5 +106,41 @@ public class MedicaoDAO {
 	    return medicoes;
 	}
 	
+	public List<Medicao> buscarHistoricoPorSensor(String tipoSensor) {
+
+	    List<Medicao> medicoes = new ArrayList<>();
+
+	    String sql = "SELECT * FROM medicao WHERE tipo_sensor = ?";
+
+	    Connection conn = ConexaoBD.getInstancia().getConexao();
+
+	    try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+	        stmt.setString(1, tipoSensor);
+
+	        try (ResultSet rs = stmt.executeQuery()) {
+
+	            while (rs.next()) {
+
+	                int id = rs.getInt("id");
+	                String tipo = rs.getString("tipo_sensor");
+	                int valor = rs.getInt("valor");
+
+	                LocalDateTime dataHora = rs.getTimestamp("data_hora").toLocalDateTime();
+
+	                Medicao medicao = new Medicao(id, tipo, valor, dataHora);
+
+	                medicoes.add(medicao);
+	            }
+	        }
+
+	    } catch (SQLException e) {
+	        System.out.println("Erro ao buscar histórico: " + e.getMessage());
+	    }
+
+	    return medicoes;
+	}
+	
+	
 
 }
