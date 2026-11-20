@@ -39,10 +39,8 @@ O sistema utilizará dados simulados para registrar medições, armazenar um his
 Os resultados servirão como apoio à tomada de decisão dos responsáveis pelas unidades de saúde, sem substituir a avaliação humana.
 
 ## OBS
-### Decisão de modelagem — DadosTerritorio e ConfiguracaoSistema
+### Padrão Criacional -  Factory
 
-A classe `DadosTerritorio` é responsável por armazenar as informações territoriais e os limiares de atenção, alerta e criticidade, garantindo a validação dos valores por meio de métodos específicos.
+Para a criação das estratégias de previsão, foi aplicado o padrão criacional **Factory**, por meio da classe `FabricaPrevisao`. Essa classe centraliza a criação das estratégias `PrevisaoMediaMovel` e `PrevisaoComparacao`, retornando os objetos por meio da abstração `EstrategiaPrevisao`.
 
-A classe `ConfiguracaoSistema` será responsável por centralizar o gerenciamento dessas configurações, utilizando o padrão Singleton para disponibilizar uma instância única durante a execução do sistema.
-
-Essa divisão permite manter o encapsulamento e evitar a duplicação de informações, respeitando as responsabilidades de cada classe.
+A escolha desse padrão evita que diferentes partes do sistema precisem conhecer e instanciar diretamente as implementações concretas das estratégias, facilitando a manutenção e a inclusão de novas formas de previsão.
