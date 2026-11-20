@@ -1,0 +1,17 @@
+# Compilados
+bin/
+target/
+*.class
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# IDE e sistema
+.idea/
+*.iml
+.DS_Store
+
+# Logs e banco local
+*.log
